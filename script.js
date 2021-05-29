@@ -14,7 +14,6 @@ let score = 0;
 
 const loadQuiz = () => {
   deselectAnswers();
-
   let currentQuizData = quizData[currentQuiz];
   questionEl.innerText = currentQuizData.question;
   a_text.innerText = currentQuizData.a;
@@ -34,7 +33,6 @@ const getSelected = () => {
       answer = el.id;
     }
   });
-
   return answer;
 };
 
@@ -42,26 +40,13 @@ const checkAnswer = () => {
   const answer = getSelected();
   if (answer === quizData[currentQuiz].correct) {
     score += 1;
-    console.log("Correct answer...score: ", score);
-  } else {
-    console.log("Incorrect answer...score: ", score);
   }
   currentQuiz += 1;
 };
 
-const checkLastQuestion = () => {
-  if (currentQuiz < quizData.length) {
-    console.log("Index of current question: ", currentQuiz);
-    return true;
-  } else {
-    console.log("Game over...Score:", score);
-    return false;
-  }
-};
-
 submitBtn.addEventListener("click", () => {
   checkAnswer();
-  if (checkLastQuestion()) {
+  if (currentQuiz < quizData.length) {
     loadQuiz();
   } else {
     console.log("Quiz over.");
