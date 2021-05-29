@@ -1,6 +1,5 @@
 import quizData from "./quizData.js";
 
-const quiz = document.getElementById("quiz");
 const answerEls = document.querySelectorAll(".answer");
 const questionEl = document.getElementById("question");
 const a_text = document.getElementById("a_text");
@@ -50,12 +49,8 @@ submitBtn.addEventListener("click", () => {
     loadQuiz();
   } else {
     console.log("Quiz over.");
-    let quizBlock = document.querySelector(".question-block");
-    quizBlock.innerHTML = "";
-    questionEl.innerText = "Quiz Complete.";
-    var scoreText = document.createElement("H1");
-    scoreText.innerHTML = "Score " + score;
-    questionEl.appendChild(scoreText);
+    document.querySelector(".question-block").innerHTML = "";
+    questionEl.innerHTML = `<h2>Quiz Complete.</h2> <h1>Score: ${score}</h1>`;
     submitBtn.innerText = "Thanks For Playing";
   }
 });
