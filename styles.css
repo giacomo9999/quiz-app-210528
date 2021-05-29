@@ -26,10 +26,11 @@ body {
   overflow: hidden;
 }
 
-.quiz-header {
+.quiz-body {
   padding: 2rem;
 }
 
+h1,
 h2 {
   padding: 0;
   text-align: center;
